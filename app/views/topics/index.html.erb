@@ -2,12 +2,12 @@
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Description</th>
+    <th width="30%">Topic</th>
+    <th width="70%" colspan="4">Description</th>
   </tr>
   <% for topic in @topics %>
     <tr>
-      <td><%= topic.name %></td>
+      <td><h3><%= link_to h(topic.name), topic_path(topic.id) %></h3><%= topic.threads.count %> posts</td>
       <td><%= topic.description %></td>
       <td><%= link_to "Show", topic %></td>
       <td><%= link_to "Edit", edit_topic_path(topic) %></td>

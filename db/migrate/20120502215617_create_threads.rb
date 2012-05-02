@@ -3,7 +3,7 @@ class CreateThreads < ActiveRecord::Migration
     create_table :threads do |t|
       t.string :name
       t.integer :lastposterid
-      t.datet :lastpostat
+      t.date :lastpostat
       t.timestamps
     end
   end
