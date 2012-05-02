@@ -1,0 +1,16 @@
+<%= form_for @thread do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :lastposterid %><br />
+    <%= f.number_field :lastposterid %>
+  </p>
+  <p>
+    <%= f.label :lastpostat %><br />
+    <%= f.text_field :lastpostat %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

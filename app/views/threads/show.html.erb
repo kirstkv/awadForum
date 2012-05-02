@@ -1,0 +1,20 @@
+<% title "Thread" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @thread.name %>
+</p>
+<p>
+  <strong>Lastposterid:</strong>
+  <%= @thread.lastposterid %>
+</p>
+<p>
+  <strong>Lastpostat:</strong>
+  <%= @thread.lastpostat %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_thread_path(@thread) %> |
+  <%= link_to "Destroy", @thread, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", threads_path %>
+</p>

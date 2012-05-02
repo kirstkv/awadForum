@@ -1,0 +1,21 @@
+<% title "Threads" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Lastposterid</th>
+    <th>Lastpostat</th>
+  </tr>
+  <% for thread in @threads %>
+    <tr>
+      <td><%= thread.name %></td>
+      <td><%= thread.lastposterid %></td>
+      <td><%= thread.lastpostat %></td>
+      <td><%= link_to "Show", thread %></td>
+      <td><%= link_to "Edit", edit_thread_path(thread) %></td>
+      <td><%= link_to "Destroy", thread, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Thread", new_thread_path %></p>

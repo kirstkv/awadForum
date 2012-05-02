@@ -1,0 +1,16 @@
+<% title "Topic" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @topic.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @topic.description %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_topic_path(@topic) %> |
+  <%= link_to "Destroy", @topic, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", topics_path %>
+</p>
