@@ -10,10 +10,10 @@
   <% for thred in @topic.threds do %>
     <tr>
       <td><h3><%= link_to h(thred.name), thred_path(thred.id) %></h3></td>
-      <td><%= threds.posts -1 %></td>
-      <td><%= link_to "Show", topic %></td>
-      <td><%= link_to "Edit", edit_topic_path(topic) %></td>
-      <td><%= link_to "Destroy", topic, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= thred.posts -1 %></td>
+      <td><%= link_to "Show", thred %></td>
+      <td><%= link_to "Edit", edit_thred_path(thred) %></td>
+      <td><%= link_to "Destroy", thred, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
   <% else %>

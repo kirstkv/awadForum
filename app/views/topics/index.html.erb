@@ -14,6 +14,7 @@
           0
         <% end %> threads</td>
       <td><%= topic.description %></td>
+      <td class="right"><% if topic.most_recent_post %><%= distance_of_time_in_words_to_now topic.most_recent_post.timestamp %> ago<% else %>no posts<% end %></td>
       <td><%= link_to "Show", topic %></td>
       <td><%= link_to "Edit", edit_topic_path(topic) %></td>
       <td><%= link_to "Destroy", topic, :confirm => 'Are you sure?', :method => :delete %></td>

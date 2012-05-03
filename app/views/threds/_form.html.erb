@@ -1,20 +1,12 @@
-<%= form_for @thred do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :lastposterid %><br />
-    <%= f.number_field :lastposterid %>
-  </p>
-  <p>
-    <%= f.label :lastpostat %><br />
-    <%= f.date_select :lastpostat %>
-  </p>
-  <p>
-    <%= f.label :topic_id %><br />
-    <%= f.number_field :topic_id %>
-  </p>
-  <p><%= f.submit %></p>
-<% end %>
+<% form_for @thread do |f| %>  
+  <%= f.error_messages %>  
+  <% if params[:topic] %><input type="hidden" id="thread_topic_id" name="thread[topic_id]" value="<%= params[:topic] %>" /><% end %>  
+  <p>  
+    <%= f.label :name %><br />  
+    <%= f.text_field :name %>  
+  </p>  
+  <p>  
+    <textarea name="post[content]" cols="80" rows="20"><%= @post.content %></textarea>  
+  </p>  
+  <p><%= f.submit "Create" %></p>  
+<% end %> 

@@ -1,4 +1,5 @@
 class ThreadsController < ApplicationController
+  
   def index
     @threads = Thread.all
   end
@@ -38,4 +39,5 @@ class ThreadsController < ApplicationController
     @thread.destroy
     redirect_to threads_url, :notice => "Successfully destroyed thread."
   end
+  
 end
