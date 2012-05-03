@@ -1,0 +1,24 @@
+<% title "Thred" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @thred.name %>
+</p>
+<p>
+  <strong>Lastposterid:</strong>
+  <%= @thred.lastposterid %>
+</p>
+<p>
+  <strong>Lastpostat:</strong>
+  <%= @thred.lastpostat %>
+</p>
+<p>
+  <strong>Topic:</strong>
+  <%= @thred.topic_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_thred_path(@thred) %> |
+  <%= link_to "Destroy", @thred, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", threds_path %>
+</p>

@@ -1,12 +1,18 @@
 Forum::Application.routes.draw do
   
+  resources :threds do
+    resources :posts
+  end
+  
   root :to => 'topics#index'
   
   resources :posts
 
   resources :threads
 
-  resources :topics
+  resources :topics do
+    resources :threds
+  end
 
   match 'user/edit' => 'users#edit', :as => :edit_current_user
 

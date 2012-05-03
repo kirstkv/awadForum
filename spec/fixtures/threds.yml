@@ -1,0 +1,11 @@
+one:
+  name: MyString
+  lastposterid: 1
+  lastpostat: 2012-05-03
+  topic_id: 1
+
+two:
+  name: MyString
+  lastposterid: 1
+  lastpostat: 2012-05-03
+  topic_id: 1

@@ -1,0 +1,23 @@
+<% title "Threds" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Lastposterid</th>
+    <th>Lastpostat</th>
+    <th>Topic</th>
+  </tr>
+  <% for thred in @threds %>
+    <tr>
+      <td><%= thred.name %></td>
+      <td><%= thred.lastposterid %></td>
+      <td><%= thred.lastpostat %></td>
+      <td><%= thred.topic_id %></td>
+      <td><%= link_to "Show", thred %></td>
+      <td><%= link_to "Edit", edit_thred_path(thred) %></td>
+      <td><%= link_to "Destroy", thred, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Thred", new_thred_path %></p>

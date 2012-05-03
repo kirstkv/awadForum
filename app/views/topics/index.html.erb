@@ -7,7 +7,12 @@
   </tr>
   <% for topic in @topics %>
     <tr>
-      <td><h3><%= link_to h(topic.name), topic_path(topic.id) %></h3><%= topic.threads.count %> posts</td>
+      <td><h3><%= link_to h(topic.name), topic_path(topic.id) %></h3>
+        <% if topic.threds.empty? == false %>
+          <%=topic.threds.count %>
+        <% else %>
+          0
+        <% end %> threads</td>
       <td><%= topic.description %></td>
       <td><%= link_to "Show", topic %></td>
       <td><%= link_to "Edit", edit_topic_path(topic) %></td>

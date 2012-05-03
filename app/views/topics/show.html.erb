@@ -1,16 +1,25 @@
-<% title "Topic" %>
+<% title @topic.name %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @topic.name %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%= @topic.description %>
-</p>
+<table>
+  <tr>
+    <th width="60%">Topic Title</th>
+    <th width="10%" colspan="2">Replies</th>
+    <th width="70%" >Last Post</th>
+  </tr>
+  <% if @topic.threds.empty? == false %>
+  <% for thred in @topic.threds do %>
+    <tr>
+      <td><h3><%= link_to h(thred.name), thred_path(thred.id) %></h3></td>
+      <td><%= threds.posts -1 %></td>
+      <td><%= link_to "Show", topic %></td>
+      <td><%= link_to "Edit", edit_topic_path(topic) %></td>
+      <td><%= link_to "Destroy", topic, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+  <% else %>
+    <tr>  
+      <td colspan="4">Oh no! There are no threads in this topic! <%= link_to "Create one?", new_thred_path %></td>
+    </tr>
+  <% end %>
+</table>
 
-<p>
-  <%= link_to "Edit", edit_topic_path(@topic) %> |
-  <%= link_to "Destroy", @topic, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", topics_path %>
-</p>
