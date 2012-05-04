@@ -1,13 +1,15 @@
 class ThredsController < ApplicationController
-
+  before_filter :login_required, :except => [:index, :show]  
+  before_filter :admin_required, :only => :destroy
+  
   def new
     @thred = Thred.new
   end
 
   def create
-    @thred = Thred.new(params[:topic])  
+    @thred = Thred.new(params[:thred])  
     if @thred.save  
-      @thred = Thred.new(:name => params[:topic][:name], :last_poster_id => current_user.id, :last_post_at => Date.now, :forum_id => params[:topic][:forum_id])  
+      @thred = Thred.new(:name => params[:topic][:name], :last_poster_id => current_user.id, :last_post_at => Time.now, :topic_id => params[:thred][:topic_id])  
       if @post.save  
         flash[:notice] = "Successfully created thred."  
         redirect_to "/topics/#{@thred.topic_id}"  

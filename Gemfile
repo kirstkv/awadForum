@@ -4,6 +4,7 @@ gem 'rails', '3.2.1'
 gem 'railties', '3.2.1'
 gem 'ffi', '1.0.9'
 gem 'nifty-generators', '0.4.6'
+gem 'bcrypt-ruby', :require => 'bcrypt'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'

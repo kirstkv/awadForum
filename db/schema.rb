@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120503120841) do
+ActiveRecord::Schema.define(:version => 20120504025703) do
 
   create_table "posts", :force => true do |t|
     t.text     "content"
@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(:version => 20120503120841) do
 
   create_table "threds", :force => true do |t|
     t.string   "name"
-    t.integer  "lastposterid"
-    t.date     "lastpostat"
+    t.integer  "last_poster_id"
+    t.datetime "last_post_at"
     t.integer  "topic_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "topics", :force => true do |t|
@@ -43,8 +43,9 @@ ActiveRecord::Schema.define(:version => 20120503120841) do
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.integer  "permission_level"
   end
 
 end

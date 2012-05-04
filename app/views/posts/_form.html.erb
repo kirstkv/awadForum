@@ -1,5 +1,6 @@
 <%= form_for @post do |f| %>
   <%= f.error_messages %>
+  <% if params[:thred] %><input type="hidden" id="thred_topic_id" name="post[thred_id]" value="<%= params[:thred] %>" /><% end %>  
   <p>
     <%= f.label :content %><br />
     <%= f.text_area :content %>

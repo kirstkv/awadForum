@@ -1,24 +1,14 @@
-<% title "Thred" %>
-
+ <% title @thred.name %>  
+   
+ <% for post in @thred.posts %>  
+ <div class="post">  
+   <span class="left"><%= link_to post.user.username %><br /><%= link_to "Delete", post, :confirm => 'Are you sute?', :method => :delete%></span>  
+   <span class="right"><%= post.content %></span>  
+ </div>  
+ <% end %>  
+  
 <p>
-  <strong>Name:</strong>
-  <%= @thred.name %>
-</p>
-<p>
-  <strong>Lastposterid:</strong>
-  <%= @thred.lastposterid %>
-</p>
-<p>
-  <strong>Lastpostat:</strong>
-  <%= @thred.lastpostat %>
-</p>
-<p>
-  <strong>Topic:</strong>
-  <%= @thred.topic_id %>
-</p>
-
-<p>
-  <%= link_to "Edit", edit_thred_path(@thred) %> |
-  <%= link_to "Destroy", @thred, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", threds_path %>
+  <% if logged_in? %><%= link_to "Reply", "#{new_post_path}?thred=#{@thred.id}" %> | <% end %> 
+  <% if admin? %><%= link_to "Destroy Thread", @thred, :confirm => 'Are you sure?', :method => :delete %> | <% end %> 
+  <%= link_to "View All", topic_path(@thred.topic_id %>
 </p>

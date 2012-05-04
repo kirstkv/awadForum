@@ -1,0 +1,7 @@
+<% title 'user: ' + @user.username %>  
+<div id="threds">  
+   <strong>threads</strong>  
+  <% @user.threds.each do |thred| %>  
+    <%= link_to thred.name, thred_url(thred.topic.id) %>  
+  <% end %>  
+</div> 

@@ -1,6 +1,6 @@
-<% form_for @thread do |f| %>  
+<% form_for @thred do |f| %>  
   <%= f.error_messages %>  
-  <% if params[:topic] %><input type="hidden" id="thread_topic_id" name="thread[topic_id]" value="<%= params[:topic] %>" /><% end %>  
+  <% if params[:topic] %><input type="hidden" id="thred_topic_id" name="thred[topic_id]" value="<%= params[:topic] %>" /><% end %>  
   <p>  
     <%= f.label :name %><br />  
     <%= f.text_field :name %>  

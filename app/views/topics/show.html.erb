@@ -4,22 +4,22 @@
   <tr>
     <th width="60%">Topic Title</th>
     <th width="10%" colspan="2">Replies</th>
-    <th width="70%" >Last Post</th>
+    <th width="30%" >Last Post</th>
   </tr>
   <% if @topic.threds.empty? == false %>
-  <% for thred in @topic.threds do %>
+    <% for thred in @topic.threds do %>
     <tr>
       <td><h3><%= link_to h(thred.name), thred_path(thred.id) %></h3></td>
       <td><%= thred.posts -1 %></td>
-      <td><%= link_to "Show", thred %></td>
-      <td><%= link_to "Edit", edit_thred_path(thred) %></td>
-      <td><%= link_to "Destroy", thred, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td class="right"><%= distance_of_time_in_words_to_now thred.last_post_at %> ago by </td> 
+      <% if admin? %><td><%= link_to "Destroy", thred, :confirm => 'Are you sure?', :method => :delete %></td><% end %>
     </tr>
-  <% end %>
+    <% end %>
   <% else %>
     <tr>  
-      <td colspan="4">Oh no! There are no threads in this topic! <%= link_to "Create one?", new_thred_path %></td>
+      <td colspan="4">Oh no! There are no threads in this topic! <%= link_to "Create One!", "/thred/new?topic=#{@topic.id}" %></td>
     </tr>
   <% end %>
 </table>
 
+<% if logged_in? %> <p><%= link_to "New Thread", "/thred/new?topic=#{@topic.id}" %></p><% end %>  
